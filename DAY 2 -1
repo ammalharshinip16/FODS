@@ -1,0 +1,28 @@
+Scenario: You work for a real estate agency and have been given a dataset containing information about properties for sale. The dataset is stored in a Pandas DataFrame named property_data. The DataFrame has columns for property ID, location, number of bedrooms, area in square feet, and listing price. Your task is to analyze the data and answer specific questions about the properties.
+Question: Using Pandas DataFrame operations, how would you find the following information from the property_data DataFrame:
+The average listing price of properties in each location.
+The number of properties with more than four bedrooms.
+The property with the largest area.
+
+import pandas as pd
+# Example data creation for demonstration purposes
+property_data = pd.DataFrame({
+    'property_id': [1, 2, 3, 4, 5],
+    'location': ['Location1', 'Location2', 'Location1', 'Location3', 'Location2'],
+    'bedrooms': [3, 5, 4, 2, 6],
+    'area_sqft': [1500, 2500, 1800, 1200, 2200],
+    'listing_price': [300000, 500000, 350000, 250000, 450000]
+})
+
+# 1. Average listing price of properties in each location
+average_listing_price = property_data.groupby('location')['listing_price'].mean()
+print("Average listing price in each location:\n", average_listing_price)
+
+# 2. Number of properties with more than four bedrooms
+properties_more_than_4_bedrooms = property_data[property_data['bedrooms'] > 4].shape[0]
+print("Number of properties with more than four bedrooms:", properties_more_than_4_bedrooms)
+
+# 3. Property with the largest area
+property_with_largest_area = property_data.loc[property_data['area_sqft'].idxmax()]
+print(" Property with the largest area:",property_with_largest_area)
+
