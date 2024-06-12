@@ -1,0 +1,46 @@
+ Scenario : You are a data scientist working for a company that sells products online. You have been tasked with creating a simple plot to show the sales of a product over time.
+Question:
+1. Write code to create a simple line plot in Python using Matplotlib to predict sales happened in a month?
+2. Write code to create a scatter plot in Python using Matplotlib to predict sales happened in a month?
+3. Develop a Python program to create a bar plot of the monthly sales data.
+
+
+) # Sample data: sales over 12 months
+data = {
+    'Month': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    'Sales': [150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700]
+}
+
+# Creating a DataFrame
+sales_data = pd.DataFrame(data)
+import matplotlib.pyplot as plt
+
+# Line plot
+plt.figure(figsize=(10, 6))
+plt.plot(sales_data['Month'], sales_data['Sales'], marker='o', linestyle='-', color='b')
+plt.title('Sales Over Time')
+plt.xlabel('Month')
+plt.ylabel('Sales')
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+# Scatter plot
+plt.figure(figsize=(10, 6))
+plt.scatter(sales_data['Month'], sales_data['Sales'], color='r')
+plt.title('Sales Over Time')
+plt.xlabel('Month')
+plt.ylabel('Sales')
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+# Bar plot
+plt.figure(figsize=(10, 6))
+plt.bar(sales_data['Month'], sales_data['Sales'], color='g')
+plt.title('Sales Over Time')
+plt.xlabel('Month')
+plt.ylabel('Sales')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
