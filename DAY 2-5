@@ -1,0 +1,19 @@
+You are a data analyst working for a company that sells products online. You have been tasked with analyzing the sales data for the past month. The data is stored in a NumPy array.
+Question: How would you find the average price of all the products sold in the past month? Assume 3x3 matrix with each row representing the sales for a different product
+
+
+) import numpy as np
+
+# Example data creation for demonstration purposes
+# Assume each row represents a different product, and each column represents different sales transactions
+sales_data = np.array([
+    [100, 150, 200],  # Product 1 sales
+    [120, 180, 240],  # Product 2 sales
+    [130, 170, 210]   # Product 3 sales
+])
+
+# Calculate the average price of all products sold
+average_price = sales_data.mean()
+
+# Display the result
+print(f"The average price of all products sold in the past month is: {average_price:.2f}")
