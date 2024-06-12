@@ -1,0 +1,32 @@
+Scenario: You are a data analyst working for a company that sells products online. You have been tasked with analyzing the sales data for the past month. The data is stored in a Pandas data frame.
+Question: Develop a code in python to find the frequency distribution of the ages of the customers who have made a purchase in the past month.
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Example data creation for demonstration purposes
+data = {
+    'customer_id': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'age': [22, 25, 22, 23, 25, 24, 23, 24, 22, 25],
+    'purchase_amount': [120, 150, 100, 200, 300, 250, 160, 180, 140, 210]
+}
+
+# Creating a DataFrame
+sales_data = pd.DataFrame(data)
+
+# Calculate frequency distribution of ages
+age_distribution = sales_data['age'].value_counts().sort_index()
+
+# Display the frequency distribution
+print("Frequency distribution of ages:\n", age_distribution)
+
+# Visualize the distribution with a bar plot
+plt.figure(figsize=(10, 6))
+age_distribution.plot(kind='bar', color='skyblue')
+plt.title('Frequency Distribution of Customer Ages')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)
+plt.grid(axis='y')
+plt.tight_layout()
+plt.show()
